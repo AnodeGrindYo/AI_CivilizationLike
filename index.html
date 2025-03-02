@@ -1,0 +1,104 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Civilization</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components/map.css">
+    <link rel="stylesheet" href="styles/components/ui.css">
+    <link rel="stylesheet" href="styles/components/settings.css">
+    <link rel="stylesheet" href="styles/components/stats.css">
+    <link rel="stylesheet" href="styles/responsive.css">
+    <script src="https://cdn.jsdelivr.net/npm/uuid@8.3.2/dist/umd/uuid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.15.0/dist/tf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/simplex-noise/2.4.0/simplex-noise.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <header id="game-header">
+            <h1>AI Civilization</h1>
+            <nav id="main-nav">
+                <button id="toggle-settings">Settings</button>
+                <button id="toggle-stats">Statistics</button>
+                <button id="toggle-agents">Agents</button>
+                <button id="toggle-help">Help</button>
+            </nav>
+        </header>
+        
+        <main id="game-container">
+            <div id="map-container" style="flex: 1; display: block; position: relative; width: 100%; height: calc(100vh - 120px);"></div>
+            <div id="game-controls">
+                <button id="start-game">Start Game</button>
+                <button id="pause-game">Pause</button>
+                <button id="next-turn">Next Turn</button>
+                <div id="turn-info">Turn: <span id="turn-counter">0</span> | Year: <span id="year-counter">-4000</span></div>
+            </div>
+        </main>
+        
+        <div id="panels">
+            <div id="settings-panel" class="panel">
+                <h2>Game Settings</h2>
+                <div id="settings-container"></div>
+            </div>
+            
+            <div id="stats-panel" class="panel">
+                <h2>Game Statistics</h2>
+                <div id="stats-container"></div>
+            </div>
+            
+            <div id="agents-panel" class="panel">
+                <h2>AI Agents</h2>
+                <div id="agents-container">
+                    <div id="agent-list"></div>
+                    <div id="agent-editor"></div>
+                </div>
+                <div id="agent-actions">
+                    <button id="create-agent">Create New Agent</button>
+                    <button id="import-agent">Import Agent</button>
+                    <button id="export-agent">Export Selected Agent</button>
+                    <button id="delete-agent">Delete Agent</button>
+                </div>
+            </div>
+            
+            <div id="help-panel" class="panel">
+                <h2>Help</h2>
+                <div id="help-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Core Game Engine -->
+    <script src="js/core/game.js"></script>
+    <script src="js/core/map.js"></script>
+    <script src="js/core/tile.js"></script>
+    <script src="js/core/city.js"></script>
+    <script src="js/core/unit.js"></script>
+    <script src="js/core/player.js"></script>
+    <script src="js/core/tech.js"></script>
+    <script src="js/core/resources.js"></script>
+    
+    <!-- AI Components -->
+    <script src="js/ai/agent.js"></script>
+    <script src="js/ai/qlearn.js"></script>
+    <script src="js/ai/deepq.js"></script>
+    <script src="js/ai/rewardSystem.js"></script>
+    <script src="js/ai/agentStore.js"></script>
+    
+    <!-- UI Components -->
+    <script src="js/ui/mapRenderer.js"></script>
+    <script src="js/ui/uiManager.js"></script>
+    <script src="js/ui/settingsPanel.js"></script>
+    <script src="js/ui/statsPanel.js"></script>
+    <script src="js/ui/agentsPanel.js"></script>
+    <script src="js/ui/helpPanel.js"></script>
+    
+    <!-- Utilities -->
+    <script src="js/utils/persistence.js"></script>
+    <script src="js/utils/statistics.js"></script>
+    <script src="js/utils/exportImport.js"></script>
+    
+    <!-- Main Application -->
+    <script src="js/app.js"></script>
+</body>
+</html>
